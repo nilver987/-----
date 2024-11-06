@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/travel")
+@RequestMapping("/conductor")
 public class ConductorController {
     @Autowired
     private ConductorService conductorService;
