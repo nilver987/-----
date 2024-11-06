@@ -5,23 +5,25 @@ import jakarta.persistence.*;
 
 import lombok.Data;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 @Entity
 @Data
 public class Travel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String plate;
-    private String model;
-    private String mark;
-    private Integer year;
-    private Integer capacity;
-    private String status;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "maintenance_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Maintenance maintenance;
+
+
+    private LocalDate departureDate;
+    private LocalTime departureTime;
+    private LocalDateTime estimatedArrival;
+
+    private String status;  // pending, in progress, completed
+
 }
 
 
-}
+

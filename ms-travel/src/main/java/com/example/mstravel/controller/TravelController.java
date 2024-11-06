@@ -1,8 +1,8 @@
 package com.example.mstravel.controller;
 
 
-import com.example.msvehicle.entity.Vehicle;
-import com.example.msvehicle.service.VehicleService;
+import com.example.mstravel.entity.Travel;
+import com.example.mstravel.service.TravelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,32 +11,32 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/vehicle")
+@RequestMapping("/travel")
 public class TravelController {
     @Autowired
-    private VehicleService vehicleService;
+    private TravelService travelService;
 
     @GetMapping
-    public ResponseEntity<List<Vehicle>> getAll() {
-        return ResponseEntity.ok(vehicleService.list());
+    public ResponseEntity<List<Travel>> getAll() {
+        return ResponseEntity.ok(travelService.list());
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Vehicle>> getById(@PathVariable Integer id) {
-        return ResponseEntity.ok(vehicleService.findById(id));
+    public ResponseEntity<Optional<Travel>> getById(@PathVariable Integer id) {
+        return ResponseEntity.ok(travelService.findById(id));
     }
     @PostMapping
-    public ResponseEntity<Vehicle> create(@RequestBody Vehicle vehicle) {
-        return ResponseEntity.ok(vehicleService.save(vehicle));
+    public ResponseEntity<Travel> create(@RequestBody Travel travel) {
+        return ResponseEntity.ok(travelService.save(travel));
     }
     @PutMapping("/{id}")
-    public ResponseEntity<Vehicle> update(@PathVariable Integer id,
-                                          @RequestBody Vehicle vehicle) {
-        vehicle.setId(id);
-        return ResponseEntity.ok(vehicleService.save(vehicle));
+    public ResponseEntity<Travel> update(@PathVariable Integer id,
+                                          @RequestBody Travel travel) {
+        travel.setId(id);
+        return ResponseEntity.ok(travelService.save(travel));
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<List<Vehicle>> delete(@PathVariable Integer id) {
-        vehicleService.delete(id);
-        return ResponseEntity.ok(vehicleService.list());
+    public ResponseEntity<List<Travel>> delete(@PathVariable Integer id) {
+        travelService.delete(id);
+        return ResponseEntity.ok(travelService.list());
     }
 }

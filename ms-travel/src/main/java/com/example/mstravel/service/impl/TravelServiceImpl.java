@@ -1,9 +1,9 @@
 package com.example.mstravel.service.impl;
 
 
-import com.example.msvehicle.entity.Vehicle;
-import com.example.msvehicle.repository.VehicleRepository;
-import com.example.msvehicle.service.VehicleService;
+import com.example.mstravel.entity.Travel;
+import com.example.mstravel.repository.TravelRepository;
+import com.example.mstravel.service.TravelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,32 +11,32 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class TravelServiceImpl implements VehicleService {
+public class TravelServiceImpl implements TravelService {
     @Autowired
-    private VehicleRepository vehicleRepository;
+    private TravelRepository travelRepository;
 
     @Override
-    public List<Vehicle> list() {
-        return vehicleRepository.findAll();
+    public List<Travel> list() {
+        return travelRepository.findAll();
     }
 
     @Override
-    public Optional<Vehicle> findById(Integer id) {
-        return vehicleRepository.findById(id);
+    public Optional<Travel> findById(Integer id) {
+        return travelRepository.findById(id);
     }
 
     @Override
-    public Vehicle save(Vehicle vehicle) {
-        return vehicleRepository.save(vehicle);
+    public Travel save(Travel travel) {
+        return travelRepository.save(travel);
     }
 
     @Override
-    public Vehicle update(Vehicle vehicle) {
-        return vehicleRepository.save(vehicle);
+    public Travel update(Travel travel) {
+        return travelRepository.save(travel);
     }
 
     @Override
     public void delete(Integer id) {
-        vehicleRepository.deleteById(id);
+        travelRepository.deleteById(id);
     }
 }
