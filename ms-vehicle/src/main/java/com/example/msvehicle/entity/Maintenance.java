@@ -1,10 +1,8 @@
 package com.example.msvehicle.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Entity;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -19,4 +17,8 @@ public class Maintenance {
     private LocalDate maintenanceDate;
     private String status;  // completed, pending
     private Double cost;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "vehicle_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Vehicle vehicle;
 }
