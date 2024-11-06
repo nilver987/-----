@@ -18,8 +18,5 @@ public class Maintenance {
     private LocalDate maintenanceDate;
     private String status;  // completed, pending
     private Double cost;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "vehicle_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Vehicle vehicle;
+
 }
