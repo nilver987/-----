@@ -15,13 +15,15 @@ public class Travel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-
     private LocalDate departureDate;
     private LocalTime departureTime;
     private LocalDateTime estimatedArrival;
 
     private String status;  // pending, in progress, completed
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "conductor_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Conductor conductor;
 
 }
 

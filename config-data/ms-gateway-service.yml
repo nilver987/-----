@@ -33,7 +33,7 @@ spring:
         - id: ms-travel-service
           uri: lb://ms-travel-service
           predicates:
-            - Path=/travel/**
+            - Path=/travel/**, /conductor/**
 
 
 
