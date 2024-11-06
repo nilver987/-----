@@ -1,6 +1,5 @@
 package com.example.msvehicle.repository;
 
-
 import com.example.msvehicle.entity.Vehicle;
 import org.springframework.data.jpa.repository.JpaRepository;
 
