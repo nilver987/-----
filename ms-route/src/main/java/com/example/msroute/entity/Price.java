@@ -16,10 +16,10 @@ public class Price {
     private Double price;
     private LocalDate validFrom;
     private LocalDate validTo;
-    @ManyToOne
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    @JoinColumn(name = "route_id")
-    private Route route;
+    //@ManyToOne
+    //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    //@JoinColumn(name = "route_id")
+    //private Route route;
 
 
 }
