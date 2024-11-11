@@ -1,10 +1,10 @@
 package com.example.msroute.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -12,5 +12,14 @@ public class Price {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;  // conductor, Assistant
+    private String vehicleType;  // Bus, Van, etc.
+    private Double price;
+    private LocalDate validFrom;
+    private LocalDate validTo;
+    @ManyToOne
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @JoinColumn(name = "route_id")
+    private Route route;
+
+
 }

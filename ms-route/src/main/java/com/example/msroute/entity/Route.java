@@ -9,7 +9,12 @@ public class Route {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String role;  // conductor, Assistant
+    private String origin;
+    private String destination;
+    private Integer estimatedDuration;
+    private Integer distance;
+    private String status;  // active, inactive
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "price_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
