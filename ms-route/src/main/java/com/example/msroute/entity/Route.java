@@ -7,8 +7,9 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Route {@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Route {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String role;  // conductor, Assistant
 }
