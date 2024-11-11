@@ -1,12 +1,9 @@
 package com.example.msroute.service.impl;
 
 
-import com.example.mstravel.entity.Conductor;
-import com.example.mstravel.entity.Travel;
-import com.example.mstravel.repository.ConductorRepository;
-import com.example.mstravel.repository.TravelRepository;
-import com.example.mstravel.service.ConductorService;
-import com.example.mstravel.service.TravelService;
+import com.example.msroute.entity.Route;
+import com.example.msroute.repository.RouteRepository;
+import com.example.msroute.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,32 +11,32 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RouteServiceImpl implements ConductorService {
+public class RouteServiceImpl implements RouteService {
     @Autowired
-    private ConductorRepository conductorRepository;
+    private RouteRepository routeRepository;
 
     @Override
-    public List<Conductor> list() {
-        return conductorRepository.findAll();
+    public List<Route> list() {
+        return routeRepository.findAll();
     }
 
     @Override
-    public Optional<Conductor> findById(Integer id) {
-        return conductorRepository.findById(id);
+    public Optional<Route> findById(Integer id) {
+        return routeRepository.findById(id);
     }
 
     @Override
-    public Conductor save(Conductor conductor) {
-        return conductorRepository.save(conductor);
+    public Route save(Route route) {
+        return routeRepository.save(route);
     }
 
     @Override
-    public Conductor update(Conductor conductor) {
-        return conductorRepository.save(conductor);
+    public Route update(Route route) {
+        return routeRepository.save(route);
     }
 
     @Override
     public void delete(Integer id) {
-        conductorRepository.deleteById(id);
+        routeRepository.deleteById(id);
     }
 }

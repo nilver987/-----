@@ -9,7 +9,6 @@ import lombok.Data;
 @Data
 public class Route {@Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-private Integer id;
-
+    private Integer id;
     private String role;  // conductor, Assistant
 }
