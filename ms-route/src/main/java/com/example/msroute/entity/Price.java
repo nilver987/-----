@@ -16,7 +16,7 @@ public class Price {
     private Double price;
     private LocalDate validFrom;
     private LocalDate validTo;
-    
+
 
 
 }
