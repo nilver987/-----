@@ -46,4 +46,4 @@ spring:
         - id: ms-route-service
           uri: lb://ms-route-service
           predicates:
-            - Path=/route/**, /maintenance/**
+            - Path=/route/**, /price/**
