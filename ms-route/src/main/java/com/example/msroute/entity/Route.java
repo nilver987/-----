@@ -1,8 +1,6 @@
 package com.example.msroute.entity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -12,4 +10,8 @@ public class Route {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String role;  // conductor, Assistant
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "price_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Price price;
 }
