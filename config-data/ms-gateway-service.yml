@@ -49,4 +49,5 @@ spring:
         - id: ms-conductor-service
           uri: lb://ms-conductor-service
           predicates:
-            - Path=/conductor/** , /passenger/**
+            - Path=/conductor/** , /passenger/**, /ticket/**
+
