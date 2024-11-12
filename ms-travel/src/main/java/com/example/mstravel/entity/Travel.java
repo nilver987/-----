@@ -19,13 +19,29 @@ public class Travel {
     private LocalTime departureTime;
     private LocalDateTime estimatedArrival;
 
-    private String status;  // pending, in progress, completed
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "conductor_id")
+    @JoinColumn(name = "terminal_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Terminal conductor;
+    private Terminal terminal;
+
+    // Enum Status
+    @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "ENUM('pendiente', 'en proceso', 'completado')")
+    private Status status;
+    public enum Status {
+        PENDING,
+        IN_PROGRESS,
+        COMPLETED
+    }
+
+    //FOREIGN KEY (route_id) REFERENCES routes(id),
+    //FOREIGN KEY (vehicle_id) REFERENCES vehicles(id),
+
+
 
 }
+
 
 
 

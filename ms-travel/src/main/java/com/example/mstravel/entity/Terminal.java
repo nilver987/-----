@@ -13,5 +13,6 @@ public class Terminal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombre;
+    private String direccion;
 
 }
