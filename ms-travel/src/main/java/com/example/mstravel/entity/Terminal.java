@@ -12,7 +12,7 @@ public class Terminal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String nombre;
-    private String direccion;
+    private String name;
+    private String location;
 
 }

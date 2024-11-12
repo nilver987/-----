@@ -15,25 +15,21 @@ public class Travel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private LocalDate departureDate;
-    private LocalTime departureTime;
-    private LocalDateTime estimatedArrival;
+    @ManyToOne
+    @JoinColumn(name = "terminal_origin_id")
+    private Terminal terminalOrigin;
+
+    @ManyToOne
+    @JoinColumn(name = "terminal_destination_id")
+    private Terminal terminalDestination;
+
+    private LocalDateTime departureTime;
+
+    private LocalDateTime arrivalTime;
+
+    private Integer availableSeats;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "terminal_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Terminal terminal;
-
-    // Enum Status
-    @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "ENUM('pendiente', 'en proceso', 'completado')")
-    private Status status;
-    public enum Status {
-        PENDING,
-        IN_PROGRESS,
-        COMPLETED
-    }
 
     //FOREIGN KEY (route_id) REFERENCES routes(id),
     //FOREIGN KEY (vehicle_id) REFERENCES vehicles(id),
