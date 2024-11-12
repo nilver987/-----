@@ -9,15 +9,14 @@ public class Route {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String origin;
-    private String destination;
-    private Integer estimatedDuration; //duracion del viaje
-    private Integer distance;
-    private String status;  // active, inactive
+    @ManyToOne
+    @JoinColumn(name = "terminal_origin_id")
+    private Terminal terminalOrigin;
 
-    //@ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "price_id")
-//    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-//    private Price price;
-//
+    @ManyToOne
+    @JoinColumn(name = "terminal_destination_id")
+    private Terminal terminalDestination;
+
+    private Integer distanceKm;
+
 }

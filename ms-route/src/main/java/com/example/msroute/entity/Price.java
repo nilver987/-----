@@ -13,14 +13,11 @@ public class Price {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String vehicleType;  // Bus, Van, etc.
-    private BigDecimal price;
-    private LocalDate validFrom;
-    private LocalDate validTo;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "route_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Route route;
+
+    private BigDecimal price;
 
 
 

@@ -15,24 +15,22 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String seatNumber;
+    @ManyToOne
+    @JoinColumn(name = "reservation_id")
+    private Reservation reservation;
+
+    @Column(unique = true)
+    private String ticketNumber;
+
     private BigDecimal price;
-    private Date purchaseDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "reservations_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Reservations reservations;
-
-
+    private LocalDate issuedDate;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false)
-    private Status status;
+    private TicketStatus status; // Enum: Confirmed, Cancelled
 
-    public enum Status {
-        PAID,
-        PENDING,
+    public enum TicketStatus {
+        CONFIRMED,
         CANCELLED
     }
 }

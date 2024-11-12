@@ -13,19 +13,25 @@ public class Reservations {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String seatNumber;
-    private Date reservationDate;
+    @ManyToOne
+    @JoinColumn(name = "passenger_id")
+    private Passenger passenger;
+
+    @ManyToOne
+    @JoinColumn(name = "travel_id")
+    private Travel travel;
+
+    private LocalDate reservationDate;
+
+    private Integer seatNumber;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false)
-    private Status status;
-
-    public enum Status {
+    private ReservationStatus status; // Enum: Confirmed, Pending, Cancelled
+    public enum ReservationStatus {
         CONFIRMED,
-        CANCELLED,
-        PENDING
+        PENDING,
+        CANCELLED
     }
 
-
-    //FOREIGN KEY (trip_id) REFERENCES trips(id)
 }
+
