@@ -1,5 +1,6 @@
-package com.example.ms_terminal.service;
-import com.example.ms_terminal.entity.Terminal;
+package com.example.mstravel.service;
+
+import com.example.mstravel.entity.Terminal;
 
 import java.util.List;
 import java.util.Optional;

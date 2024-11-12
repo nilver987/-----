@@ -8,10 +8,10 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Conductor {
+public class Terminal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private String nombre;
 
-    private String role;  // conductor, Assistant
 }

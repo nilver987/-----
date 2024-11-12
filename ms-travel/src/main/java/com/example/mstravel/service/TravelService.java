@@ -1,6 +1,5 @@
 package com.example.mstravel.service;
 
-import com.example.mstravel.entity.Conductor;
 import com.example.mstravel.entity.Travel;
 
 import java.util.List;

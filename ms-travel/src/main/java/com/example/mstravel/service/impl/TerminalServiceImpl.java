@@ -1,8 +1,7 @@
-package com.example.ms_terminal.service.impl;
-
-import com.example.ms_terminal.entity.Terminal;
-import com.example.ms_terminal.repository.TerminalRepository;
-import com.example.ms_terminal.service.TerminalService;
+package com.example.mstravel.service.impl;
+import com.example.mstravel.entity.Terminal;
+import com.example.mstravel.repository.TerminalRepository;
+import com.example.mstravel.service.TerminalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

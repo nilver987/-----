@@ -1,5 +1,5 @@
-package com.example.ms_terminal.repository;
-import com.example.ms_terminal.entity.Terminal;
+package com.example.mstravel.repository;
+import com.example.mstravel.entity.Terminal;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

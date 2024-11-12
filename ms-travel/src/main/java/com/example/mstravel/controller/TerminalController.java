@@ -1,6 +1,7 @@
-package com.example.ms_terminal.controller;
-import com.example.ms_terminal.entity.Terminal;
-import com.example.ms_terminal.service.TerminalService;
+package com.example.mstravel.controller;
+
+import com.example.mstravel.entity.Terminal;
+import com.example.mstravel.service.TerminalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

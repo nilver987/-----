@@ -23,7 +23,7 @@ public class Travel {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "conductor_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Conductor conductor;
+    private Terminal conductor;
 
 }
 
