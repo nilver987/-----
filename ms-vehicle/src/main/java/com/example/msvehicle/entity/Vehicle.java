@@ -11,15 +11,22 @@ public class Vehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String plate;
+    @Column(unique = true)
+    private String plateNumber;
+
     private String model;
-    private String mark;
-    private Integer year;
+
     private Integer capacity;
-    private String status; //('available', 'maintenance', 'out_of_service')
 
+    @Enumerated(EnumType.STRING)
+    private VehicleStatus status; // Enum: Available, In_Maintenance, Not_Available
 
-    //FOREIGN KEY (driver_id) REFERENCES users(id)
-
+    // Getters and Setters
+    public enum VehicleStatus {
+        AVAILABLE,
+        IN_MAINTENANCE,
+        NOT_AVAILABLE
+    }
 }
+
 
