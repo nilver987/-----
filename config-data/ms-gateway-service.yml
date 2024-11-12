@@ -47,3 +47,13 @@ spring:
           uri: lb://ms-route-service
           predicates:
             - Path=/route/**, /price/**
+
+        - id: ms-terminal-service
+          uri: lb://ms-terminal-service
+          predicates:
+            - Path=/terminal/**
+
+        - id: ms-passenger-service
+          uri: lb://ms-passenger-service
+          predicates:
+            - Path=/passenger/**
