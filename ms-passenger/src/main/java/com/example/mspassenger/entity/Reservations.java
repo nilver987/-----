@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import lombok.Data;
 
@@ -12,8 +13,19 @@ public class Reservations {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String description;
-    private LocalDate maintenanceDate;
-    private String status;  // completed, pending
-    private Double cost;
+    private String seatNumber;
+    private Date reservationDate;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
+    private Status status;
+
+    public enum Status {
+        CONFIRMED,
+        CANCELLED,
+        PENDING
+    }
+
+
+    //FOREIGN KEY (trip_id) REFERENCES trips(id)
 }
