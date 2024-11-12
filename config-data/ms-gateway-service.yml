@@ -30,13 +30,6 @@ spring:
 
 
 
-        - id: ms-travel-service
-          uri: lb://ms-travel-service
-          predicates:
-            - Path=/travel/**, /conductor/**
-
-
-
 
         - id: ms-vehicle-service
           uri: lb://ms-vehicle-service
@@ -48,12 +41,9 @@ spring:
           predicates:
             - Path=/route/**, /price/**
 
-        - id: ms-terminal-service
-          uri: lb://ms-terminal-service
+        - id: ms-travel-service
+          uri: lb://ms-travel-service
           predicates:
-            - Path=/terminal/**
+            - Path=/travel/**, /terminal/**
 
-        - id: ms-passenger-service
-          uri: lb://ms-passenger-service
-          predicates:
-            - Path=/passenger/**
+
