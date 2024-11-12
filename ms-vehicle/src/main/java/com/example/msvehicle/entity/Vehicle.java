@@ -16,10 +16,10 @@ public class Vehicle {
     private String mark;
     private Integer year;
     private Integer capacity;
-    private String status;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "maintenance_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Maintenance maintenance;
+    private String status; //('available', 'maintenance', 'out_of_service')
+
+
+    //FOREIGN KEY (driver_id) REFERENCES users(id)
+
 }
 
