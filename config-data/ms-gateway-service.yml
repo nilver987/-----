@@ -46,4 +46,7 @@ spring:
           predicates:
             - Path=/travel/**, /terminal/**
 
-
+        - id: ms-conductor-service
+          uri: lb://ms-conductor-service
+          predicates:
+            - Path=/conductor/**
