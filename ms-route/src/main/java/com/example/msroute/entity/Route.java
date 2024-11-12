@@ -11,12 +11,13 @@ public class Route {
     private Integer id;
     private String origin;
     private String destination;
-    private Integer estimatedDuration;
+    private Integer estimatedDuration; //duracion del viaje
     private Integer distance;
     private String status;  // active, inactive
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "price_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Price price;
+    //@ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "price_id")
+//    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//    private Price price;
+//
 }

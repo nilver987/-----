@@ -1,8 +1,10 @@
 package com.example.msroute.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -12,9 +14,14 @@ public class Price {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String vehicleType;  // Bus, Van, etc.
-    private Double price;
+    private BigDecimal price;
     private LocalDate validFrom;
     private LocalDate validTo;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "route_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Route route;
+
 
 
 
