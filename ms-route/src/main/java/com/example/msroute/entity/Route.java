@@ -14,4 +14,5 @@ public class Route {
     private Integer distanceKm;
     private Integer terminalId;
 
+
 }
