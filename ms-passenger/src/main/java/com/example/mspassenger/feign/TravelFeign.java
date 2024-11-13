@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "ms-travel-service", path = "/travel")
 public interface TravelFeign {
     @GetMapping("/{id}")
-    public ResponseEntity<TerminalDto> listById(@PathVariable(required = true) Integer id);
+    public ResponseEntity<TravelFeign> listById(@PathVariable(required = true) Integer id);
 
 
 }
