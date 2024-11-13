@@ -1,7 +1,9 @@
 package com.example.msroute.service.impl;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.msroute.entity.Route;
+import com.example.msroute.feign.TerminalFeign;
 import com.example.msroute.repository.RouteRepository;
 import com.example.msroute.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,8 @@ import java.util.Optional;
 public class RouteServiceImpl implements RouteService {
     @Autowired
     private RouteRepository routeRepository;
+    @Autowired
+    private TerminalFeign terminalFeign;
 
     @Override
     public List<Route> list() {

@@ -22,8 +22,6 @@ public class Ticket {
     @Enumerated(EnumType.STRING)
     private TicketStatus status; // Enum: Confirmed, Cancelled
 
-
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "reservation_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})

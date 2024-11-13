@@ -14,10 +14,6 @@ public class Reservations {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @ManyToOne
-    @JoinColumn(name = "travel_id")
-    private Travel travel;
-
     private LocalDate reservationDate;
     private Integer seatNumber;
 
@@ -28,6 +24,9 @@ public class Reservations {
     @JoinColumn(name = "passenger_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Passenger passenger;
+
+
+    private Integer travelId;
 
 
     public enum ReservationStatus {
