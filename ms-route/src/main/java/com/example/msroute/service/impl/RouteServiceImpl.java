@@ -16,8 +16,7 @@ import java.util.Optional;
 public class RouteServiceImpl implements RouteService {
     @Autowired
     private RouteRepository routeRepository;
-    @Autowired
-    private TerminalFeign terminalFeign;
+
 
     @Override
     public List<Route> list() {
