@@ -22,7 +22,7 @@ public class Maintenance {
 
 
 
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vehicle_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})

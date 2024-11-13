@@ -15,19 +15,20 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @ManyToOne
-    @JoinColumn(name = "reservation_id")
-    private Reservation reservation;
-
     @Column(unique = true)
     private String ticketNumber;
-
     private BigDecimal price;
-
     private LocalDate issuedDate;
-
     @Enumerated(EnumType.STRING)
     private TicketStatus status; // Enum: Confirmed, Cancelled
+
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "reservation_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Reservations reservations;
+
 
     public enum TicketStatus {
         CONFIRMED,
