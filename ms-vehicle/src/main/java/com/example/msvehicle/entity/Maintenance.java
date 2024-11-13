@@ -14,29 +14,23 @@ public class Maintenance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Entity
-    public class MaintenanceRecord {
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Integer id;
+    private LocalDate maintenanceDate;
+    private LocalDate nextMaintenanceDate;
+    @Enumerated(EnumType.STRING)
+    private MaintenanceStatus status; // Enum: Passed, Failed
 
-        @ManyToOne
-        @JoinColumn(name = "vehicle_id")
-        private Vehicle vehicle;
 
-        private LocalDate maintenanceDate;
 
-        private LocalDate nextMaintenanceDate;
 
-        @Enumerated(EnumType.STRING)
-        private MaintenanceStatus status; // Enum: Passed, Failed
-
-        // Getters and Setters
-    }
-
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "vehicle_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Vehicle vehicle;
     public enum MaintenanceStatus {
         PASSED,
         FAILED
     }
+
 
 }
